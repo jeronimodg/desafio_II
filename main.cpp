@@ -6,6 +6,7 @@ using namespace std;
 
 int main() {
     srand(time(0));
+
     torneo t;
 
     t.cargar();

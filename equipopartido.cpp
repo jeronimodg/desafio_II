@@ -7,6 +7,21 @@ equipopartido::equipopartido(equipo& e){
         titulares[i] = &e.getJugador(rand()%26);
     }
 }
+equipopartido::equipopartido(const equipopartido& otro){
+
+    goles = otro.goles;
+    cantGoles = otro.cantGoles;
+
+    for(unsigned short int i=0;i<11;i++){
+        iteraciones++;
+        titulares[i] = otro.titulares[i];
+    }
+
+    for(unsigned short int i=0;i<cantGoles;i++){
+        iteraciones++;
+        goleadores[i] = otro.goleadores[i];
+    }
+}
 
 void equipopartido::simular(){
 

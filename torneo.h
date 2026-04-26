@@ -15,6 +15,8 @@ private:
 public:
     torneo();
 
+    torneo(const torneo& otro);
+
     void cargar();
     void generarGrupos();
     void jugar();

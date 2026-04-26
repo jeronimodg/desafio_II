@@ -6,6 +6,9 @@ private:
 
 public:
     jugador();
+
+    jugador(const jugador& otro);
+
     void aumentarGoles();
 };
 #endif // JUGADOR_H

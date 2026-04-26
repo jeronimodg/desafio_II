@@ -3,6 +3,14 @@
 #include <iostream>
 using namespace std;
 
+fixture::fixture(){}
+
+fixture::fixture(const fixture& otro){
+    for(unsigned short int i=0;i<72;i++){
+        partidos[i] = otro.partidos[i];
+    }
+}
+
 void fixture::generar(grupo grupos[12]) {
 
     unsigned short int k = 0;

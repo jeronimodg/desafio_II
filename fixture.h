@@ -7,6 +7,10 @@ private:
     partido* partidos[72];
 
 public:
+    fixture();
+
+    fixture(const fixture& otro);
+
     void generar(grupo grupos[12]);
     void simular();
 

@@ -8,6 +8,15 @@ using namespace std;
 #include <sstream>
 torneo::torneo(){}
 
+torneo::torneo(const torneo& otro){
+
+    for(unsigned short int i=0;i<48;i++)
+        equipos[i] = otro.equipos[i];
+
+    for(unsigned short int i=0;i<12;i++)
+        grupos[i] = otro.grupos[i];
+}
+
 void torneo::cargar() {
 
     ifstream file("selecciones_clasificadas_mundial.csv");

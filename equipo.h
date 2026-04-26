@@ -24,6 +24,8 @@ private:
 public:
     equipo();
 
+    equipo(const equipo& otro);
+
     void setDatos(string p, char c, unsigned short int r);
 
     string getPais();

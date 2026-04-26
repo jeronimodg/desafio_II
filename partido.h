@@ -15,6 +15,8 @@ private:
 public:
     partido(equipo& a, equipo& b);
 
+    partido(const partido& otro);
+
     void simular();
     void imprimir();
 

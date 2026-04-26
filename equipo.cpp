@@ -1,8 +1,24 @@
 #include "equipo.h"
-
+#include "global.h"
 equipo::equipo(){
     puntos = gf = gc = 0;
 }
+equipo::equipo(const equipo& otro){
+
+    pais = otro.pais;
+    conf = otro.conf;
+    ranking = otro.ranking;
+
+    puntos = otro.puntos;
+    gf = otro.gf;
+    gc = otro.gc;
+
+    for(unsigned short int i=0;i<26;i++){
+        iteraciones++;
+        jugadores[i] = otro.jugadores[i];
+    }
+}
+
 
 void equipo::setDatos(string p, char c, unsigned short int r){
     pais = p;

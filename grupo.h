@@ -9,6 +9,8 @@ private:
 public:
     grupo();
 
+    grupo(const grupo& otro);
+
     bool agregarEquipo(equipo* e);
     equipo* getEquipo(unsigned short int i);
 

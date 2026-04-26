@@ -4,6 +4,15 @@
 
 using namespace std;
 
+tabla::tabla(){}
+
+tabla::tabla(const tabla& otro){
+    for(unsigned short int i=0;i<4;i++){
+        iteraciones++;
+        equipos[i] = otro.equipos[i];
+    }
+}
+
 void tabla::cargar(grupo& g){
     for(unsigned short int i=0;i<4;i++){
         iteraciones++;

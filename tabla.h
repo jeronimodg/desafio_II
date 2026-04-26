@@ -7,7 +7,13 @@ private:
     equipo* equipos[4];
 
 public:
+    tabla();
+
+    tabla(const tabla& otro);
+
     void cargar(grupo& g);
+
+
     void ordenar();
     void imprimir(char letra);
     equipo* get(unsigned short int i);

@@ -14,6 +14,8 @@ private:
 public:
     equipopartido(equipo& e);
 
+    equipopartido(const equipopartido& otro);
+
     void simular();
     unsigned short int getGoles();
 

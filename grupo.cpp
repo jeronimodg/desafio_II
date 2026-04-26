@@ -4,6 +4,16 @@
 using namespace std;
 grupo::grupo(){ cantidad = 0; }
 
+grupo::grupo(const grupo& otro){
+
+    cantidad = otro.cantidad;
+
+    for(unsigned short int i=0;i<cantidad;i++){
+        iteraciones++;
+        equipos[i] = otro.equipos[i];
+    }
+}
+
 bool grupo::agregarEquipo(equipo* e){
     if(cantidad < 4){
         equipos[cantidad++] = e;

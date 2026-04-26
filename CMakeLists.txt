@@ -16,8 +16,8 @@ add_executable(desafio2 main.cpp
     equipopartido.cpp
     grupo.h
     grupo.cpp
-    grupos.h
-    grupos.cpp
+
+
     fixture.h
     fixture.cpp
     torneo.h

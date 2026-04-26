@@ -6,6 +6,14 @@ using namespace std;
 partido::partido(equipo& a, equipo& b)
     : e1(a), e2(b), ep1(a), ep2(b) {}
 
+
+partido::partido(const partido& otro)
+    : e1(otro.e1), e2(otro.e2),
+    ep1(otro.ep1), ep2(otro.ep2){
+    g1 = otro.g1;
+    g2 = otro.g2;
+}
+
 void partido::simular() {
     ep1.simular();
     ep2.simular();
