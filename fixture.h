@@ -9,5 +9,7 @@ private:
 public:
     void generar(grupo grupos[12]);
     void simular();
+
+    ~fixture();
 };
 #endif // FIXTURE_H

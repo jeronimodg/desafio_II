@@ -13,11 +13,15 @@ private:
     grupo grupos[12];
 
 public:
+    torneo();
+
     void cargar();
     void generarGrupos();
     void jugar();
     void eliminatorias();
     void imprimirGrupos();
+
+    ~torneo();
 };
 
 #endif

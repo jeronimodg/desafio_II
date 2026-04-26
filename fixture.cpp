@@ -7,8 +7,7 @@ void fixture::generar(grupo grupos[12]) {
 
     unsigned short int k = 0;
 
-    for(unsigned short int g=0; g<12; g++) {
-        iteraciones++;
+    for(unsigned short int g=0; g<12; g++){
 
         equipo* e1 = grupos[g].getEquipo(0);
         equipo* e2 = grupos[g].getEquipo(1);
@@ -16,13 +15,37 @@ void fixture::generar(grupo grupos[12]) {
         equipo* e4 = grupos[g].getEquipo(3);
 
         partidos[k++] = new partido(*e1,*e2);
-        partidos[k++] = new partido(*e1,*e3);
-        partidos[k++] = new partido(*e1,*e4);
-        partidos[k++] = new partido(*e2,*e3);
-        partidos[k++] = new partido(*e2,*e4);
         partidos[k++] = new partido(*e3,*e4);
 
-        memoriaUsada+= sizeof(partido)*6;
+        memoriaUsada+= sizeof(partido)*2;
+    }
+
+    for(unsigned short int g=0; g<12; g++){
+
+        equipo* e1 = grupos[g].getEquipo(0);
+        equipo* e2 = grupos[g].getEquipo(1);
+        equipo* e3 = grupos[g].getEquipo(2);
+        equipo* e4 = grupos[g].getEquipo(3);
+
+        partidos[k++] = new partido(*e1,*e3);
+        partidos[k++] = new partido(*e2,*e4);
+
+        memoriaUsada+= sizeof(partido)*2;
+
+    }
+
+    for(unsigned short int g=0; g<12; g++){
+
+        equipo* e1 = grupos[g].getEquipo(0);
+        equipo* e2 = grupos[g].getEquipo(1);
+        equipo* e3 = grupos[g].getEquipo(2);
+        equipo* e4 = grupos[g].getEquipo(3);
+
+        partidos[k++] = new partido(*e1,*e4);
+        partidos[k++] = new partido(*e2,*e3);
+
+        memoriaUsada+= sizeof(partido)*2;
+
     }
 }
 
@@ -82,5 +105,12 @@ void fixture::simular(){
             }
             dia++;
         }
+    }
+}
+
+fixture::~fixture(){
+    for(unsigned short int i=0;i<72;i++){
+        delete partidos[i];
+        partidos[i]=nullptr;
     }
 }

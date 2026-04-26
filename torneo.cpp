@@ -6,6 +6,7 @@
 using namespace std;
 #include <fstream>
 #include <sstream>
+torneo::torneo(){}
 
 void torneo::cargar() {
 
@@ -53,13 +54,50 @@ void torneo::cargar() {
 
 void torneo::generarGrupos() {
 
-    unsigned short int k=0;
-
-    for(unsigned short int g=0; g<12; g++) {
+    for(unsigned short int i=0;i<47;i++){
         iteraciones++;
-        for(unsigned short int i=0;i<4;i++) {
+        for(unsigned short int j=0;j<47-i;j++){
             iteraciones++;
-            grupos[g].agregarEquipo(&equipos[k++]);
+            if(equipos[j].getRanking() > equipos[j+1].getRanking()){
+                equipo temp = equipos[j];
+                equipos[j] = equipos[j+1];
+                equipos[j+1] = temp;
+            }
+        }
+    }
+
+    equipo* bombos[4][12];
+
+    for(unsigned short int i=0;i<4;i++){
+        iteraciones++;
+        for(unsigned short int j=0;j<12;j++){
+            iteraciones++;
+            bombos[i][j] = &equipos[i*12 + j];
+        }
+    }
+
+    for(unsigned short int g=0; g<12; g++){
+        iteraciones++;
+        grupos[g] = grupo();
+    }
+
+    for(unsigned short int b=0; b<4; b++){
+        iteraciones++;
+
+        bool usados[12] = {false};
+
+        for(unsigned short int g=0; g<12; g++){
+            iteraciones++;
+
+            unsigned short int r;
+
+            do{
+                iteraciones++;
+                r = rand()%12;
+            }while(usados[r]);
+
+            grupos[g].agregarEquipo(bombos[b][r]);
+            usados[r] = true;
         }
     }
 }
@@ -240,3 +278,5 @@ void torneo::eliminatorias(){
 
     cout << "\nCAMPEON: " << ronda[0]->getPais() << endl;
 }
+
+torneo::~torneo(){}
