@@ -43,3 +43,7 @@ void equipo::actualizar(unsigned short int g1, unsigned short int g2){
 unsigned short int equipo::getPuntos(){ return puntos; }
 unsigned short int equipo::getGF(){ return gf; }
 unsigned short int equipo::getGC(){ return gc; }
+
+unsigned short int equipo::getGolesJugador(unsigned short int i){
+    return jugadores[i].getGoles();
+}

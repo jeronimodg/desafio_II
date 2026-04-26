@@ -7,3 +7,5 @@ jugador::jugador(const jugador& otro){
 }
 
 void jugador::aumentarGoles() { goles++; }
+
+unsigned short int jugador::getGoles(){return goles;}

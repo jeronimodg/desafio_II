@@ -219,8 +219,16 @@ void torneo::eliminatorias(){
     unsigned short int minuto = 0;
 
     unsigned short int partidosDia = 0;
-    while(n > 1){
 
+    equipo* semifinalistas[4];
+
+    while(n > 1){
+        if(n == 4){
+            for(unsigned short int i=0;i<4;i++){
+                iteraciones++;
+                semifinalistas[i] = ronda[i];
+            }
+        }
         cout << "\n--- Ronda de " << n << " ---\n";
 
         equipo* sig[32];
@@ -286,6 +294,35 @@ void torneo::eliminatorias(){
     }
 
     cout << "\nCAMPEON: " << ronda[0]->getPais() << endl;
+    cout<<endl;
+
+    equipo* campeon = ronda[0];
+    cout << "\n=== TOP 4 ===\n";
+
+    cout << "1. " << ronda[0]->getPais() << endl;
+    cout << "2. " << ronda[1]->getPais() << endl;
+
+    for(unsigned short int i=0;i<4;i++){
+        if(semifinalistas[i] != ronda[0] &&
+            semifinalistas[i] != ronda[1]){
+            cout << "- " << semifinalistas[i]->getPais() << endl;
+        }
+    }
+
+    short int maxG = -1;
+    short int jugadorTop = -1;
+
+    for(unsigned short int i=0;i<26;i++){
+        unsigned short int g = campeon->getGolesJugador(i);
+
+        if(g > maxG){
+            maxG = g;
+            jugadorTop = i+1;
+        }
+    }
+
+    cout << "\nMax goleador del campeon: Jugador "
+         << jugadorTop << " con " << maxG << " goles\n";
 }
 
 torneo::~torneo(){}

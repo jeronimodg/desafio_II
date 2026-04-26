@@ -10,5 +10,7 @@ public:
     jugador(const jugador& otro);
 
     void aumentarGoles();
+
+    unsigned short int getGoles();
 };
 #endif // JUGADOR_H

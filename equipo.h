@@ -39,6 +39,8 @@ public:
     unsigned short int getPuntos();
     unsigned short int getGF();
     unsigned short int getGC();
+
+    unsigned short int getGolesJugador(unsigned short int i);
 };
 
 #endif
