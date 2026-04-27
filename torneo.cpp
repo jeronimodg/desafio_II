@@ -324,7 +324,7 @@ void torneo::eliminatorias(){
     cout << "1. " << p1 << endl;
     cout << "2. " << p2 << endl;
 
-    int pos = 3;
+    unsgined short int pos = 3;
 
     for(unsigned short int i=0;i<4;i++){
         string p = semifinalistas[i]->getPais();
