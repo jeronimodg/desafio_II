@@ -221,6 +221,7 @@ void torneo::eliminatorias(){
     unsigned short int partidosDia = 0;
 
     equipo* semifinalistas[4];
+    equipo* subcampeon = nullptr;
 
     while(n > 1){
         if(n == 4){
@@ -278,11 +279,33 @@ void torneo::eliminatorias(){
                 minuto = 0;
                 dia++;
             }
-
+            /*
             if(p.getG1() >= p.getG2())
                 sig[j++] = ronda[i];
             else
-                sig[j++] = ronda[i+1];
+                sig[j++] = ronda[i+1];*/
+            equipo* ganador;
+
+            if(p.getG1() > p.getG2())
+                ganador = ronda[i];
+            else if(p.getG2() > p.getG1())
+                ganador = ronda[i+1];
+            else {
+                if(rand()%2 == 0)
+                    ganador = ronda[i];
+                else
+                    ganador = ronda[i+1];
+            }
+
+            // 🔥 AQUÍ GUARDAS EL SUBCAMPEÓN
+            if(n == 2){
+                if(ganador == ronda[i])
+                    subcampeon = ronda[i+1];
+                else
+                    subcampeon = ronda[i];
+            }
+
+            sig[j++] = ganador;
         }
 
         for(unsigned short int i=0;i<j;i++){
@@ -297,15 +320,23 @@ void torneo::eliminatorias(){
     cout<<endl;
 
     equipo* campeon = ronda[0];
+
     cout << "\n=== TOP 4 ===\n";
 
-    cout << "1. " << ronda[0]->getPais() << endl;
-    cout << "2. " << ronda[1]->getPais() << endl;
+    string p1 = campeon->getPais();
+    string p2 = subcampeon->getPais();
 
-    for(unsigned short int i=0;i<4;i++){
-        if(semifinalistas[i] != ronda[0] &&
-            semifinalistas[i] != ronda[1]){
-            cout << "- " << semifinalistas[i]->getPais() << endl;
+    cout << "1. " << p1 << endl;
+    cout << "2. " << p2 << endl;
+
+    int pos = 3;
+
+    for(int i=0;i<4;i++){
+        string p = semifinalistas[i]->getPais();
+
+        if(p != p1 && p != p2){
+            cout << pos << ". " << p << endl;
+            pos++;
         }
     }
 
