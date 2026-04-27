@@ -279,11 +279,7 @@ void torneo::eliminatorias(){
                 minuto = 0;
                 dia++;
             }
-            /*
-            if(p.getG1() >= p.getG2())
-                sig[j++] = ronda[i];
-            else
-                sig[j++] = ronda[i+1];*/
+            
             equipo* ganador;
 
             if(p.getG1() > p.getG2())
@@ -296,8 +292,7 @@ void torneo::eliminatorias(){
                 else
                     ganador = ronda[i+1];
             }
-
-            // 🔥 AQUÍ GUARDAS EL SUBCAMPEÓN
+            
             if(n == 2){
                 if(ganador == ronda[i])
                     subcampeon = ronda[i+1];
@@ -331,7 +326,7 @@ void torneo::eliminatorias(){
 
     int pos = 3;
 
-    for(int i=0;i<4;i++){
+    for(unsigned short int i=0;i<4;i++){
         string p = semifinalistas[i]->getPais();
 
         if(p != p1 && p != p2){
